@@ -1,0 +1,4 @@
+.DS_Store
+.claude/
+# generiert von test/build-bundle.sh
+hubspot-demo-shield/test/inject-bundle.js

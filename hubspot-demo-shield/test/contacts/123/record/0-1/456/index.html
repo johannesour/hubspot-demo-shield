@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Max Müller | HubSpot</title>
+<link rel="stylesheet" href="/content/shield.css">
+<script src="/test/chrome-stub.js"></script>
+<script src="/shared/defaults.js"></script>
+<script src="/content/selectors.js"></script>
+<script src="/content/faker.js"></script>
+<script src="/content/anonymizer.js"></script>
+<script src="/content/picker.js"></script>
+<script src="/content/main.js"></script>
+<style>
+ body{font:14px system-ui;margin:0;display:grid;grid-template-columns:260px 1fr 260px;gap:16px;padding:16px}
+ nav{grid-column:1/-1;background:#2d3e50;color:#fff;padding:8px}nav a{color:#fff;margin-right:12px}
+ .prop{margin:8px 0}.prop .lbl{font-size:12px;color:#666}
+ table{border-collapse:collapse}td,th{border:1px solid #ddd;padding:4px 8px}
+</style>
+</head>
+<body>
+<nav><a href="/contacts/123/objects/0-1/views/all/list">Kontakte</a><a href="/contacts/123/objects/0-2/views/all/list">Unternehmen</a><a href="/contacts/123/objects/0-3/views/all/board">Deals</a></nav>
+<aside id="left">
+  <div class="Avatar"><img src="/test/avatar.svg" alt=""></div>
+  <h1 data-selenium-test="highlightTitle">Max Müller</h1>
+  <div class="prop"><div class="lbl">Vorname</div><div>Max</div></div>
+  <div class="prop"><div class="lbl">Nachname</div><div>Müller</div></div>
+  <div class="prop"><div class="lbl">E-Mail</div><div><input type="text" value="max.mueller@bosch.de"></div></div>
+  <div class="prop"><div class="lbl">Telefonnummer</div><div>+49 711 1234567</div></div>
+  <div class="prop"><div class="lbl">Straße</div><div>Königstraße 12</div></div>
+  <div class="prop"><div class="lbl">PLZ</div><div>70173</div></div>
+  <div class="prop"><div class="lbl">Stadt</div><div>Ludwigsburg</div></div>
+  <div class="prop"><div class="lbl">Website-URL</div><div>https://www.bosch.de</div></div>
+  <div class="prop"><div class="lbl">Jahresumsatz</div><div>2.500.000 €</div></div>
+</aside>
+<main>
+  <h2>Aktivitäten</h2>
+  <div class="note">Telefonat mit Max: Max wünscht Angebot bis Freitag, Rückruf unter 0711 98765-43. Kontakt auch über anna.schmidt@schmidt-partner.de, Ansprechpartner bei Bosch ist Frau Schmidt.</div>
+  <div data-selenium-test="timeline-activity-body">Vertraulich: Herr Müller plant den Wechsel zu einem Wettbewerber, Budget ca. 120.000 EUR.</div>
+  <h2>Kontaktliste</h2>
+  <table id="t"><thead><tr><th>Name</th><th>E-Mail</th><th>Telefon</th></tr></thead><tbody>
+   <tr><td><a href="/contacts/123/record/0-1/2">Anna Schmidt</a></td><td>anna.schmidt@schmidt-partner.de</td><td>0711 4455667</td></tr>
+   <tr><td><a href="/contacts/123/record/0-1/456" title="Max Müller">Max Müller</a></td><td>max.mueller@bosch.de</td><td>+49 711 1234567</td></tr>
+  </tbody></table>
+  <button id="add" data-hds-ignore>Zeile nachladen</button>
+  <button id="rename" data-hds-ignore>Text ändern</button>
+</main>
+<aside>
+  <h3>Unternehmen</h3>
+  <a href="/contacts/123/record/0-2/789">Robert Bosch GmbH</a>
+  <h3>Deals</h3>
+  <a href="/contacts/123/record/0-3/111">Bosch – Lizenz 2026</a> <span>48.500,00 €</span>
+</aside>
+<script>
+ document.getElementById('add').onclick = () => setTimeout(() => {
+   const tr = document.createElement('tr');
+   tr.innerHTML = '<td><a href="/contacts/123/record/0-1/9">Peter Wagner</a></td><td>p.wagner@daimler.com</td><td>+49 170 2223334</td>';
+   document.querySelector('#t tbody').appendChild(tr);
+ }, 100);
+ document.getElementById('rename').onclick = () => {
+   document.querySelector('.note').firstChild.data = 'Neue Notiz: Max ruft morgen zurück, Tel. 0711 5556667.';
+ };
+</script>
+</body>
+</html>

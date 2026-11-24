@@ -1,0 +1,16 @@
+/* Fail-safe: Solange das Script noch nicht entschieden hat, ist die Seite unscharf.
+   Bei deaktivierter Extension wird .hds-ready nach wenigen Millisekunden gesetzt. */
+html:not(.hds-ready) body {
+  filter: blur(14px) !important;
+}
+.hds-blur {
+  filter: blur(6px) !important;
+  user-select: none !important;
+}
+img.hds-blur {
+  filter: blur(10px) grayscale(1) !important;
+}
+input.hds-blur,
+textarea.hds-blur {
+  filter: blur(5px) !important;
+}

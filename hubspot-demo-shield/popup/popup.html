@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>HubSpot Demo Shield</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="../icons/icon48.png" alt="" width="28" height="28">
+    <div class="title">
+      <strong>Demo Shield</strong>
+      <span id="status">Aus</span>
+    </div>
+    <label class="switch" title="Alt+Shift+A">
+      <input type="checkbox" id="enabled">
+      <span></span>
+    </label>
+  </header>
+
+  <section>
+    <h2>Modus</h2>
+    <div class="seg">
+      <label><input type="radio" name="mode" value="fake"><span>Fake-Daten</span></label>
+      <label><input type="radio" name="mode" value="blur"><span>Unscharf</span></label>
+    </div>
+  </section>
+
+  <section>
+    <h2>Was anonymisieren?</h2>
+    <div class="grid" id="categories"></div>
+  </section>
+
+  <section>
+    <h2>Ausnahmen <small>(nie ersetzen, eine pro Zeile)</small></h2>
+    <textarea id="exceptions" rows="3" placeholder="z. B. eigener Name, eigene Firma, Demo-Kontakt"></textarea>
+  </section>
+
+  <section>
+    <h2>Eigener Bereich</h2>
+    <div class="row">
+      <select id="pickGen">
+        <option value="blur">Immer unscharf</option>
+        <option value="text">Freitext</option>
+        <option value="person">Personenname</option>
+        <option value="company">Firmenname</option>
+        <option value="address">Adresse</option>
+        <option value="amount">Betrag</option>
+      </select>
+      <button id="pick">Auf Seite wählen</button>
+    </div>
+    <ul id="rules"></ul>
+  </section>
+
+  <section class="actions">
+    <button id="reseed" class="ghost">Neue Fake-Identitäten würfeln</button>
+  </section>
+
+  <footer>
+    Kürzel <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> · Nur lokal im Browser, nichts wird an HubSpot gesendet.
+    <br>Hinweis: Felder in der Demo nicht live bearbeiten – Eingabefelder zeigen beim Fokus echte Werte.
+  </footer>
+  <script src="../shared/defaults.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
