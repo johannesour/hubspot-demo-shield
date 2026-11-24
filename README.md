@@ -109,3 +109,7 @@ docs/ENTWICKLUNG.md           Architektur, Regeln erweitern, Testen
 ```
 
 Details zu Architektur, eigenen Regeln und Tests: **[docs/ENTWICKLUNG.md](docs/ENTWICKLUNG.md)**.
+
+## Lizenz
+
+[MIT](LICENSE) © 2026 Johannes Ellenberg
